@@ -64,7 +64,7 @@ public:
     // a different tracklist.
     void playFromDifferentTrackList(QSpotifyTrackList *list);
     void enqueueTrack(std::shared_ptr<QSpotifyTrack> track);
-    void enqueueTracks(QSpotifyTrackList *tracks, bool reverse = false);
+    void enqueueTracks(QSpotifyTrackList *tracks);
     Q_INVOKABLE void selectTrack(int index);
 
     Q_INVOKABLE bool isExplicitTrack(int index);

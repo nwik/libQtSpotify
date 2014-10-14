@@ -107,18 +107,11 @@ void QSpotifyPlayQueue::enqueueTrack(std::shared_ptr<QSpotifyTrack> track)
     emit tracksChanged();
 }
 
-void QSpotifyPlayQueue::enqueueTracks(QSpotifyTrackList *tracks, bool reverse)
+void QSpotifyPlayQueue::enqueueTracks(QSpotifyTrackList *tracks)
 {
-    if(reverse) {
-        for(int i = tracks->count(); i >= 0; --i) {
-            std::shared_ptr<QSpotifyTrack> t = tracks->at(i);
-            m_explicitTracks.enqueue(t);
-        }
-    } else {
-        for (int i = 0; i < tracks->count(); ++i) {
-            std::shared_ptr<QSpotifyTrack> t = tracks->at(i);
-            m_explicitTracks.enqueue(t);
-        }
+    for (int i = 0; i < tracks->count(); ++i) {
+        std::shared_ptr<QSpotifyTrack> t = tracks->at(i);
+        m_explicitTracks.enqueue(t);
     }
     emit tracksChanged();
 }
