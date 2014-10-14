@@ -47,6 +47,7 @@
 
 #include "shared_ptr.h"
 
+class QSpotifyQueueTrackList;
 class QSpotifyTrackList;
 class QSpotifySearch;
 
@@ -93,7 +94,7 @@ private Q_SLOTS:
 private:
     void clearTrackList();
 
-    QSpotifyTrackList *m_implicitTracks;
+    QSpotifyQueueTrackList *m_implicitTracks;
     QQueue<std::shared_ptr<QSpotifyTrack> > m_explicitTracks;
     std::shared_ptr<QSpotifyTrack> m_currentExplicitTrack;
 

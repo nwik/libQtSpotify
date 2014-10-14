@@ -51,6 +51,7 @@
 #include "qspotifytrack.h"
 #include "qspotifyuser.h"
 #include "qspotifycachemanager.h"
+#include "qspotifyqueuetracklist.h"
 
 #include "threadsafecalls.h"
 

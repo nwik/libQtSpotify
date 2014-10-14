@@ -43,6 +43,7 @@
 
 #include "qspotifysession.h"
 #include "qspotifytracklist.h"
+#include "qspotifyqueuetracklist.h"
 
 QSpotifyPlayQueue::QSpotifyPlayQueue(QObject *parent)
     : QObject(parent)
@@ -52,7 +53,7 @@ QSpotifyPlayQueue::QSpotifyPlayQueue(QObject *parent)
     , m_shuffle(false)
     , m_repeat(false)
 {
-    m_implicitTracks = new QSpotifyTrackList(this);
+    m_implicitTracks = new QSpotifyQueueTrackList(this);
 }
 
 QSpotifyPlayQueue::~QSpotifyPlayQueue()

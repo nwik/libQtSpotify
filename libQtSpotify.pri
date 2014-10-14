@@ -29,7 +29,8 @@ SOURCES += ../libQtSpotify/qspotifysession.cpp \
     ../libQtSpotify/listmodels/qspotifyalbumlist.cpp \
     ../libQtSpotify/listmodels/qspotifyplaylistsearchlist.cpp \
     ../libQtSpotify/qspotifycachemanager.cpp \
-    ../libQtSpotify/qspotifyringbuffer.cpp
+    ../libQtSpotify/qspotifyringbuffer.cpp \
+    ../libQtSpotify/qspotifyqueuetracklist.cpp
 
 HEADERS += ../libQtSpotify/qspotifysession.h \
     ../libQtSpotify/spotify_key.h \
@@ -60,7 +61,8 @@ HEADERS += ../libQtSpotify/qspotifysession.h \
     ../libQtSpotify/listmodels/qspotifyplaylistsearchlist.h \
     ../libQtSpotify/qspotifycachemanager.h \
     ../libQtSpotify/qspotifyringbuffer.h \
-    ../libQtSpotify/threadsafecalls.h
+    ../libQtSpotify/threadsafecalls.h \
+    ../libQtSpotify/qspotifyqueuetracklist.h
 
 QMAKE_CXXFLAGS += -std=c++0x -Wno-unused-function
 

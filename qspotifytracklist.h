@@ -90,7 +90,7 @@ public:
     int totalDuration() const;
 
     bool isShuffle() const { return m_shuffle; }
-    void setShuffle(bool s);
+    virtual void setShuffle(bool s) { m_shuffle = s; }
 
     int currentPlayIndex() {
         return m_currentIndex;
@@ -127,8 +127,6 @@ private:
     std::shared_ptr<QSpotifyTrack> m_currentTrack;
 
     bool m_shuffle;
-    QList<int> m_shuffleList;
-    int m_shuffleIndex;
 
     friend class QSpotifyTrack;
     friend class QSpotifyPlaylist;
