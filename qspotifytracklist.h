@@ -75,7 +75,7 @@ public:
         OfflineStatusRole
     };
 
-    QSpotifyTrackList(QObject *parent = nullptr, bool reverse = false);
+    QSpotifyTrackList(QObject *parent = nullptr);
 
     QVariant data(const QModelIndex &index, int role) const;
     QHash<int, QByteArray> roleNames() const { return m_roles; }
@@ -122,8 +122,6 @@ private:
     int previousAvailable(int i);
 
     QHash<int, QByteArray> m_roles;
-
-    bool m_reverse;
 
     int m_currentIndex;
     std::shared_ptr<QSpotifyTrack> m_currentTrack;

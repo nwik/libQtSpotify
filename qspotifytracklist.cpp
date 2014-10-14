@@ -46,9 +46,8 @@
 
 #include "threadsafecalls.h"
 
-QSpotifyTrackList::QSpotifyTrackList(QObject *parent, bool reverse)
+QSpotifyTrackList::QSpotifyTrackList(QObject *parent)
     : ListModelBase<QSpotifyTrack>(parent)
-    , m_reverse(reverse)
     , m_currentIndex(0)
     , m_currentTrack(0)
     , m_shuffle(false)
@@ -133,7 +132,7 @@ void QSpotifyTrackList::play()
     if (m_shuffle)
         playTrackAtIndex(m_shuffleList.first());
     else
-        playTrackAtIndex(m_reverse ? previousAvailable(count()) : nextAvailable(-1));
+        playTrackAtIndex(nextAvailable(-1));
 }
 
 void QSpotifyTrackList::playTrack(int index)
@@ -176,9 +175,9 @@ bool QSpotifyTrackList::next()
         int index = indexOf(m_currentTrack);
         if (index == -1) {
             int newi = qMin(m_currentIndex, count() - 1);
-            return playTrackAtIndex(m_reverse ? previousAvailable(newi) : nextAvailable(newi - 1));
+            return playTrackAtIndex(nextAvailable(newi - 1));
         }
-        return playTrackAtIndex(m_reverse ? previousAvailable(index) : nextAvailable(index));
+        return playTrackAtIndex(nextAvailable(index));
     }
 }
 
@@ -194,9 +193,9 @@ bool QSpotifyTrackList::previous()
         int index = indexOf(m_currentTrack);
         if (index == -1) {
             int newi = qMin(m_currentIndex, count() - 1);
-            return playTrackAtIndex(m_reverse ? nextAvailable(newi - 1) : previousAvailable(newi));
+            return playTrackAtIndex(previousAvailable(newi));
         }
-        return playTrackAtIndex(m_reverse ? nextAvailable(index) : previousAvailable(index));
+        return playTrackAtIndex(previousAvailable(index));
     }
 }
 
@@ -208,7 +207,7 @@ void QSpotifyTrackList::playLast()
     if (m_shuffle)
         playTrackAtIndex(m_shuffleList.last());
     else
-        playTrackAtIndex(m_reverse ? nextAvailable(-1) : previousAvailable(count()));
+        playTrackAtIndex(previousAvailable(count()));
 }
 
 void QSpotifyTrackList::playCurrentTrack()
