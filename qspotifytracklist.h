@@ -92,9 +92,7 @@ public:
     bool isShuffle() const { return m_shuffle; }
     virtual void setShuffle(bool s) { m_shuffle = s; }
 
-    int currentPlayIndex() {
-        return m_currentIndex;
-    }
+    int currentPlayIndex() const { return m_currentIndex; }
 
     int indexOf(const std::shared_ptr<QSpotifyTrack> ptr) const
     { return m_dataList.indexOf(ptr); }
@@ -114,6 +112,9 @@ private Q_SLOTS:
 
 signals:
     void currentPlayIndexChanged();
+
+protected:
+    void setCurrentIndex(int index) { m_currentIndex = index; }
 
 private:
     void playCurrentTrack();
