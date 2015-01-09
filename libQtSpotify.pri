@@ -63,5 +63,12 @@ HEADERS += ../libQtSpotify/qspotifysession.h \
 
 QMAKE_CXXFLAGS += -std=c++0x
 
+ARCH = $$QMAKE_HOST.arch
+equals(ARCH, armv7l) {
 INCLUDEPATH += ../libspotify/include
 LIBS += -L$$PWD/../libspotify/lib -lspotify
+} else {
+INCLUDEPATH += ../libspotify/include
+LIBS += -L$$PWD/../libspotify_emu/lib -lspotify
+}
+
